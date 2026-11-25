@@ -6,49 +6,24 @@
   src: url("../fonts/red-hat-display-var.woff2") format("woff2");
   font-weight: 500 800;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Manrope";
   src: url("../fonts/manrope-var.woff2") format("woff2");
   font-weight: 400 700;
   font-style: normal;
-  font-display: swap;
-}
-/* Tipografías de respaldo con métricas ajustadas para que el cambio de fuente no mueva el diseño */
-@font-face {
-  font-family: "Red Hat Display ajustada";
-  src: local("Arial"), local("Liberation Sans"), local("Helvetica");
-  font-weight: 500 800;
-  size-adjust: 100%;
-  ascent-override: 93%;
-  descent-override: 24%;
-  line-gap-override: 0%;
-}
-@font-face {
-  font-family: "Manrope ajustada";
-  src: local("Arial"), local("Liberation Sans"), local("Helvetica");
-  font-weight: 400 700;
-  size-adjust: 100%;
-  ascent-override: 100%;
-  descent-override: 28%;
-  line-gap-override: 0%;
+  font-display: optional;
 }
 
 :root {
-  --fondo: #0b1220;
-  --fondo-2: #111c33;
-  --linea: #1e293b;
-  --linea-fuerte: #334155;
-  --texto: #f8fafc;
-  --texto-2: #cbd5e1;
-  --texto-3: #94a3b8;
-  --azul: #38bdf8;
-  --indigo: #818cf8;
+  /* Paleta (valores literales en las reglas):
+     fondo #0b1220 y #111c33 · texto #f8fafc, #cbd5e1 y #94a3b8 · líneas #1e293b
+     acento #38bdf8 → #818cf8, solo en remates */
   --acento: linear-gradient(90deg, #38bdf8, #818cf8);
 
-  --f-titulo: "Red Hat Display", "Red Hat Display ajustada", "Segoe UI", system-ui, sans-serif;
-  --f-texto: "Manrope", "Manrope ajustada", "Segoe UI", system-ui, sans-serif;
+  --f-titulo: "Red Hat Display", "Segoe UI", system-ui, sans-serif;
+  --f-texto: "Manrope", "Segoe UI", system-ui, sans-serif;
   --f-mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
 
   --salida: cubic-bezier(0.23, 1, 0.32, 1);
@@ -82,6 +57,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-size-adjust: from-font;
 }
 
 h1, h2, h3, p, ul, ol, dl, dd { margin: 0; padding: 0; }
@@ -141,6 +117,7 @@ img, svg { display: block; max-width: 100%; }
   top: 0;
   z-index: 50;
   height: var(--alto-cabecera);
+  padding: 0 1.25rem;
   background: #0b1220;
   border-bottom: 1px solid #1e293b;
 }
@@ -157,6 +134,7 @@ img, svg { display: block; max-width: 100%; }
 .marca {
   display: inline-flex;
   align-items: center;
+  min-height: 44px;
   gap: 0.7rem;
   text-decoration: none;
   color: #f8fafc;
@@ -174,7 +152,9 @@ img, svg { display: block; max-width: 100%; }
 }
 .menu__lista a {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   padding: 0.5rem 0.7rem;
   color: #cbd5e1;
   font-size: 0.9375rem;
@@ -185,7 +165,7 @@ img, svg { display: block; max-width: 100%; }
 .menu__lista a::after {
   content: "";
   position: absolute;
-  left: 0.7rem; right: 0.7rem; bottom: 0.2rem;
+  left: 0.7rem; right: 0.7rem; bottom: 0.4rem;
   height: 2px;
   background: var(--acento);
   transform: scaleX(0);
@@ -226,7 +206,7 @@ img, svg { display: block; max-width: 100%; }
   font-family: var(--f-texto);
   font-size: 1rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.3;
   text-decoration: none;
   transition: transform 160ms var(--salida), background-color 160ms ease, border-color 160ms ease, color 160ms ease;
 }
@@ -302,7 +282,7 @@ img, svg { display: block; max-width: 100%; }
   max-width: 24ch;
   font-family: var(--f-titulo);
   font-size: 1.875rem;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: 700;
   letter-spacing: -0.015em;
   color: #f8fafc;
@@ -329,6 +309,7 @@ img, svg { display: block; max-width: 100%; }
   align-items: center;
   justify-content: center;
   border: 1px solid #1e293b;
+  padding: 1rem;
   border-radius: 20px;
   background: #111c33;
   background-image:
@@ -416,7 +397,7 @@ img, svg { display: block; max-width: 100%; }
 .dos-columnas > .titulo-seccion { position: sticky; top: 96px; }
 
 /* Sobre mí */
-.texto-largo { max-width: 68ch; display: grid; gap: 1.25rem; }
+.texto-largo { max-width: 56ch; display: grid; gap: 1.25rem; }
 .texto-largo__entrada {
   font-family: var(--f-titulo);
   font-size: 1.375rem;
@@ -440,10 +421,9 @@ img, svg { display: block; max-width: 100%; }
 .fila::before {
   content: "";
   position: absolute;
-  left: 0; top: 50%;
+  left: 0; top: 2.6rem;
   width: 0; height: 2px;
   background: var(--acento);
-  transform: translateY(-50%);
   transition: width 260ms var(--salida);
 }
 .fila__titulo {
@@ -453,7 +433,7 @@ img, svg { display: block; max-width: 100%; }
   letter-spacing: -0.015em;
   transition: transform 260ms var(--salida);
 }
-.fila__texto { max-width: 52ch; }
+.fila__texto { max-width: 46ch; }
 @media (hover: hover) and (pointer: fine) {
   .fila:hover::before { width: 18px; }
   .fila:hover .fila__titulo { transform: translateX(30px); }
@@ -534,7 +514,7 @@ img, svg { display: block; max-width: 100%; }
   font-weight: 700;
   letter-spacing: -0.015em;
 }
-.hito__texto { margin-top: 0.4rem; max-width: 60ch; }
+.hito__texto { margin-top: 0.4rem; max-width: 52ch; }
 
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
@@ -558,7 +538,7 @@ img, svg { display: block; max-width: 100%; }
 /* IA */
 .ia__cabeza { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 3rem; align-items: start; }
 .ia__entrada {
-  max-width: 58ch;
+  max-width: 46ch;
   font-family: var(--f-titulo);
   font-size: 1.375rem;
   line-height: 1.5;
@@ -595,7 +575,7 @@ img, svg { display: block; max-width: 100%; }
 .flujo__titulo { font-size: 1.25rem; line-height: 1.3; font-weight: 700; margin-bottom: 0.4rem; }
 .ia__nota {
   margin-top: 2.5rem;
-  max-width: 68ch;
+  max-width: 60ch;
   font-family: var(--f-mono);
   font-size: 0.875rem;
   line-height: 1.7;
@@ -632,7 +612,7 @@ img, svg { display: block; max-width: 100%; }
 .contacto { position: relative; }
 .contacto__texto {
   margin-top: 1.5rem;
-  max-width: 44ch;
+  max-width: 36ch;
   font-family: var(--f-titulo);
   font-size: 1.625rem;
   line-height: 1.4;
@@ -652,7 +632,7 @@ img, svg { display: block; max-width: 100%; }
 /* Pie */
 .pie { padding: 1.75rem 1.25rem 2rem; background: #0b1220; border-top: 1px solid #1e293b; }
 .pie__fila { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: 0.9375rem; color: #94a3b8; }
-.pie__subir { display: inline-block; padding: 0.5rem 0; color: #cbd5e1; text-underline-offset: 4px; }
+.pie__subir { display: inline-flex; align-items: center; min-height: 44px; color: #cbd5e1; text-underline-offset: 4px; }
 @media (hover: hover) and (pointer: fine) {
   .pie__subir:hover { color: #f8fafc; text-decoration-color: #38bdf8; }
 }
@@ -685,7 +665,6 @@ img, svg { display: block; max-width: 100%; }
 
 /* ───────── Tablet y menú compacto ───────── */
 @media (max-width: 1060px) {
-  .cabecera { padding: 0 1.25rem; }
   .menu-boton {
     display: inline-flex;
     align-items: center;
@@ -743,6 +722,7 @@ img, svg { display: block; max-width: 100%; }
   .js .menu__lista .menu__contacto { margin: 0; text-align: center; padding: 0.9rem 1rem; }
 
   /* Sin JavaScript: la lista queda a la vista, en varias filas */
+  html:not(.js) .menu-boton { display: none; }
   html:not(.js) .cabecera { position: static; height: auto; padding-bottom: 0.5rem; }
   html:not(.js) .cabecera__fila { flex-direction: column; align-items: flex-start; padding-top: 0.75rem; }
   html:not(.js) .menu__lista { flex-wrap: wrap; }
@@ -771,7 +751,7 @@ img, svg { display: block; max-width: 100%; }
   .flujo__paso::after {
     content: "";
     position: absolute;
-    left: 14px; right: 0; top: 6px;
+    left: 14px; right: -1.5rem; top: 6px;
     height: 2px;
     background: linear-gradient(90deg, #38bdf8, #818cf8);
   }
@@ -818,14 +798,21 @@ img, svg { display: block; max-width: 100%; }
   .pie__fila { flex-direction: column; align-items: flex-start; }
 }
 
-/* Movimiento reducido: todo en reposo, nada queda oculto */
+/* Movimiento reducido: las animaciones solo se activan con "no-preference" (ver arriba).
+   Aquí se quita el movimiento de los estados de pulsación y de hover; los cambios de color se mantienen. */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation: none !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .trazo-codigo path { stroke-dasharray: none; stroke-dashoffset: 0; }
+  .boton:active,
+  .menu-boton:active,
+  .menu__lista .menu__contacto:active { transform: none; }
+  .boton .icono,
+  .fila__titulo,
+  .fila::before,
+  .menu__lista a::after,
+  .menu-boton__icono span { transition: none; }
+  .fila:hover .fila__titulo,
+  .boton:hover .icono { transform: none; }
+  .js .menu,
+  .js .menu.abierto { transform: none; }
 }
 
 /* Modo de contraste forzado */
