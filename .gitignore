@@ -1,0 +1,10 @@
+# Herramientas de diseño y borradores locales
+.taste-skill/
+.impeccable/
+_borrador/
+
+# Capturas de pantalla
+capturas/
+*.screenshot.png
+screenshot-*.png
+*-captura-*.png
