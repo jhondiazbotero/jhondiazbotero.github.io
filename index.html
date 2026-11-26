@@ -68,6 +68,7 @@
         <ul class="menu__lista">
           <li><a href="#sobre-mi">Sobre mí</a></li>
           <li><a href="#que-hago">Qué hago</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
           <li><a href="#stack">Stack</a></li>
           <li><a href="#trayectoria">Trayectoria</a></li>
           <li><a href="#como-trabajo">Cómo trabajo</a></li>
@@ -160,7 +161,30 @@
       </div>
     </section>
 
-    <section class="seccion seccion--base" id="stack" aria-labelledby="titulo-stack">
+    <section class="seccion seccion--base" id="proyectos" aria-labelledby="titulo-proyectos">
+      <div class="envoltorio">
+        <h2 class="titulo-seccion" id="titulo-proyectos">Proyectos</h2>
+        <article class="proyecto">
+          <div class="proyecto__texto">
+            <h3 class="proyecto__titulo">Citas API</h3>
+            <p class="proyecto__resumen">API para reservar citas en un consultorio.</p>
+            <p>Cada profesional tiene su agenda y nadie puede reservar la misma hora dos veces, aunque dos personas lo intenten en el mismo instante: lo impiden las reglas del dominio y una restricción de PostgreSQL. Tiene inicio de sesión con JWT, permisos por rol, documentación interactiva y 794 pruebas automáticas que corren en cada cambio.</p>
+            <ul class="etiquetas" aria-label="Tecnologías del proyecto">
+              <li>.NET 10</li><li>ASP.NET Core</li><li>PostgreSQL</li><li>EF Core</li><li>Clean Architecture</li><li>JWT</li><li>Testcontainers</li><li>Docker</li><li>GitHub Actions</li>
+            </ul>
+          </div>
+          <div class="proyecto__acciones">
+            <a class="boton boton--secundario" href="https://github.com/jhondiazbotero/citas-api-dotnet" target="_blank" rel="noopener noreferrer">
+              Ver el código
+              <svg class="icono" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><use href="#flecha-externa"/></svg>
+              <span class="solo-lectores">(se abre en otra pestaña)</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="seccion seccion--alta" id="stack" aria-labelledby="titulo-stack">
       <div class="envoltorio">
         <h2 class="titulo-seccion" id="titulo-stack">Con qué trabajo</h2>
         <dl class="stack">
@@ -204,7 +228,7 @@
       </div>
     </section>
 
-    <section class="seccion seccion--alta" id="trayectoria" aria-labelledby="titulo-trayectoria">
+    <section class="seccion seccion--base" id="trayectoria" aria-labelledby="titulo-trayectoria">
       <div class="envoltorio dos-columnas">
         <h2 class="titulo-seccion" id="titulo-trayectoria">Trayectoria</h2>
         <ol class="linea">
@@ -237,7 +261,7 @@
       </div>
     </section>
 
-    <section class="seccion seccion--base" id="como-trabajo" aria-labelledby="titulo-como-trabajo">
+    <section class="seccion seccion--alta" id="como-trabajo" aria-labelledby="titulo-como-trabajo">
       <div class="envoltorio dos-columnas">
         <h2 class="titulo-seccion" id="titulo-como-trabajo">Cómo trabajo</h2>
         <div class="bloques">
@@ -261,7 +285,7 @@
       </div>
     </section>
 
-    <section class="seccion seccion--alta" id="ia" aria-labelledby="titulo-ia">
+    <section class="seccion seccion--base" id="ia" aria-labelledby="titulo-ia">
       <div class="envoltorio">
         <div class="ia__cabeza">
           <h2 class="titulo-seccion" id="titulo-ia">IA aplicada con control</h2>
@@ -289,7 +313,7 @@
       </div>
     </section>
 
-    <section class="seccion seccion--base" id="formacion" aria-labelledby="titulo-formacion">
+    <section class="seccion seccion--alta" id="formacion" aria-labelledby="titulo-formacion">
       <div class="envoltorio dos-columnas">
         <h2 class="titulo-seccion" id="titulo-formacion">Formación y cursos</h2>
         <div class="formacion">

@@ -820,3 +820,23 @@ img, svg { display: block; max-width: 100%; }
   .boton, .menu-boton, .etiquetas li { border: 1px solid CanvasText; }
   .boton--primario { forced-color-adjust: none; background: ButtonFace; color: ButtonText; }
 }
+
+/* Proyectos: una tarjeta por proyecto publicado, con el enlace al código a la derecha. */
+.proyecto {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: start;
+  padding: 2rem;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  background: #0f182b;
+}
+.proyecto__titulo { font-size: 1.5rem; margin: 0 0 0.25rem; color: #f8fafc; }
+.proyecto__resumen { margin: 0 0 1rem; color: #38bdf8; font-family: ui-monospace, "Cascadia Code", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.9375rem; }
+.proyecto__texto > p:not(.proyecto__resumen) { max-width: 65ch; margin: 0 0 1.5rem; color: #cbd5e1; }
+@media (max-width: 760px) {
+  .proyecto { grid-template-columns: 1fr; padding: 1.5rem; gap: 1.5rem; }
+  .proyecto__acciones .boton { width: 100%; }
+}
